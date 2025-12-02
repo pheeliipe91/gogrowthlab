@@ -3,6 +3,11 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertSubscriberSchema, insertMentorshipApplicationSchema } from "@shared/schema";
 import { z } from "zod";
+import { 
+  sendNewsletterWelcomeEmail, 
+  sendMentorshipConfirmationEmail, 
+  sendMentorshipNotificationEmail 
+} from "./resend";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -22,6 +27,10 @@ export async function registerRoutes(
       }
       
       const subscriber = await storage.createSubscriber(validatedData);
+      
+      // Send welcome email (non-blocking)
+      sendNewsletterWelcomeEmail(subscriber.email, subscriber.language || "pt")
+        .catch(err => console.error("Failed to send welcome email:", err));
       
       res.status(201).json({ 
         message: "Successfully subscribed",
@@ -53,6 +62,14 @@ export async function registerRoutes(
     try {
       const validatedData = insertMentorshipApplicationSchema.parse(req.body);
       const application = await storage.createMentorshipApplication(validatedData);
+      
+      // Send confirmation email to applicant (non-blocking)
+      sendMentorshipConfirmationEmail(validatedData.email, validatedData.name)
+        .catch(err => console.error("Failed to send confirmation email:", err));
+      
+      // Send notification email to Phelipe (non-blocking)
+      sendMentorshipNotificationEmail(validatedData)
+        .catch(err => console.error("Failed to send notification email:", err));
       
       res.status(201).json({ 
         message: "Application submitted successfully",
