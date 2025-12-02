@@ -1,4 +1,4 @@
-import { type User, type InsertUser, type Subscriber, type InsertSubscriber } from "@shared/schema";
+import { type User, type InsertUser, type Subscriber, type InsertSubscriber, type MentorshipApplication, type InsertMentorshipApplication } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -9,15 +9,20 @@ export interface IStorage {
   getSubscriberByEmail(email: string): Promise<Subscriber | undefined>;
   createSubscriber(subscriber: InsertSubscriber): Promise<Subscriber>;
   getAllSubscribers(): Promise<Subscriber[]>;
+  
+  createMentorshipApplication(application: InsertMentorshipApplication): Promise<MentorshipApplication>;
+  getAllMentorshipApplications(): Promise<MentorshipApplication[]>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
   private subscribers: Map<string, Subscriber>;
+  private mentorshipApplications: Map<string, MentorshipApplication>;
 
   constructor() {
     this.users = new Map();
     this.subscribers = new Map();
+    this.mentorshipApplications = new Map();
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -57,6 +62,21 @@ export class MemStorage implements IStorage {
 
   async getAllSubscribers(): Promise<Subscriber[]> {
     return Array.from(this.subscribers.values());
+  }
+
+  async createMentorshipApplication(insertApplication: InsertMentorshipApplication): Promise<MentorshipApplication> {
+    const id = randomUUID();
+    const application: MentorshipApplication = {
+      ...insertApplication,
+      id,
+      createdAt: new Date(),
+    };
+    this.mentorshipApplications.set(id, application);
+    return application;
+  }
+
+  async getAllMentorshipApplications(): Promise<MentorshipApplication[]> {
+    return Array.from(this.mentorshipApplications.values());
   }
 }
 

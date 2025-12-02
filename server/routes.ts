@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertSubscriberSchema } from "@shared/schema";
+import { insertSubscriberSchema, insertMentorshipApplicationSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(
@@ -46,6 +46,37 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error fetching subscribers:", error);
       res.status(500).json({ error: "Failed to fetch subscribers" });
+    }
+  });
+
+  app.post("/api/mentorship-applications", async (req, res) => {
+    try {
+      const validatedData = insertMentorshipApplicationSchema.parse(req.body);
+      const application = await storage.createMentorshipApplication(validatedData);
+      
+      res.status(201).json({ 
+        message: "Application submitted successfully",
+        application 
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ 
+          error: "Invalid data",
+          details: error.errors 
+        });
+      }
+      console.error("Mentorship application error:", error);
+      res.status(500).json({ error: "Failed to submit application" });
+    }
+  });
+
+  app.get("/api/mentorship-applications", async (req, res) => {
+    try {
+      const applications = await storage.getAllMentorshipApplications();
+      res.json(applications);
+    } catch (error) {
+      console.error("Error fetching applications:", error);
+      res.status(500).json({ error: "Failed to fetch applications" });
     }
   });
 

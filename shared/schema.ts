@@ -91,3 +91,31 @@ export interface StudyTopic {
   status: "current" | "completed" | "planned";
   icon: string;
 }
+
+// Mentorship applications
+export const mentorshipApplications = pgTable("mentorship_applications", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  linkedin: text("linkedin").notNull(),
+  currentRole: text("current_role").notNull(),
+  experience: text("experience").notNull(),
+  challenge: text("challenge").notNull(),
+  expectations: text("expectations").notNull(),
+  referral: text("referral").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertMentorshipApplicationSchema = createInsertSchema(mentorshipApplications).pick({
+  name: true,
+  email: true,
+  linkedin: true,
+  currentRole: true,
+  experience: true,
+  challenge: true,
+  expectations: true,
+  referral: true,
+});
+
+export type InsertMentorshipApplication = z.infer<typeof insertMentorshipApplicationSchema>;
+export type MentorshipApplication = typeof mentorshipApplications.$inferSelect;
