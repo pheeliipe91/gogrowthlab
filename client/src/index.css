@@ -175,6 +175,38 @@
   }
 }
 
+@layer components {
+  .highlight-word {
+    position: relative;
+    font-weight: 600;
+    font-style: normal;
+    color: hsl(var(--primary));
+    display: inline-block;
+  }
+
+  .highlight-word::before {
+    content: "";
+    position: absolute;
+    left: -0.3em;
+    right: -0.3em;
+    bottom: 0.05em;
+    height: 0.4em;
+    background: linear-gradient(
+      120deg,
+      hsl(var(--primary) / 0.15) 0%,
+      hsl(var(--primary) / 0.25) 50%,
+      hsl(var(--primary) / 0.15) 100%
+    );
+    border-radius: 0.2em;
+    z-index: -1;
+    transform: skewX(-8deg);
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-from), var(--tw-gradient-to, transparent));
+  }
+}
+
 /**
  * Using the elevate system.
  * Automatic contrast adjustment.
