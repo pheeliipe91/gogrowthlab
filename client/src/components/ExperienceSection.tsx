@@ -28,16 +28,19 @@ export function ExperienceSection() {
   };
 
   return (
-    <section className="py-16 lg:py-24 px-6 border-t border-border/50">
-      <div className="max-w-4xl mx-auto">
+    <section id="experience" className="py-20 lg:py-28 px-6 border-t border-border/30">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-10"
         >
-          <h2 className="text-4xl lg:text-6xl font-bold text-foreground font-['Playfair_Display'] tracking-tight">
+          <span className="text-xs tracking-[0.2em] text-foreground/40 uppercase mb-3 block">
+            {t.experience.subtitle}
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-medium text-foreground font-['Playfair_Display'] tracking-tight">
             {t.experience.title}
           </h2>
         </motion.div>
@@ -53,24 +56,20 @@ export function ExperienceSection() {
             <motion.div
               key={company.id}
               variants={itemVariants}
-              className="group grid grid-cols-12 gap-4 py-4 border-b border-border/30 hover:bg-muted/30 transition-colors -mx-4 px-4"
+              className="group flex items-baseline justify-between py-4 border-b border-border/20"
               data-testid={`row-company-${company.id}`}
             >
-              <div className="col-span-5 sm:col-span-4">
-                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+              <div className="flex-1">
+                <h3 className="font-medium text-foreground">
                   {company.name}
                 </h3>
-              </div>
-              <div className="col-span-5 sm:col-span-5">
-                <p className="text-muted-foreground">
+                <p className="text-sm text-foreground/50 mt-0.5">
                   {company.role[language]}
                 </p>
               </div>
-              <div className="col-span-2 sm:col-span-3 text-right">
-                <span className="text-sm text-muted-foreground/70">
-                  {company.period || t.experience.present}
-                </span>
-              </div>
+              <span className="text-sm text-foreground/40 flex-shrink-0 ml-4">
+                {company.period || t.experience.present}
+              </span>
             </motion.div>
           ))}
         </motion.div>

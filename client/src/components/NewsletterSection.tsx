@@ -44,18 +44,18 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="py-16 lg:py-24 px-6 border-t border-border/50">
-      <div className="max-w-4xl mx-auto">
+    <section id="newsletter" className="py-20 lg:py-28 px-6 border-t border-border/30">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl lg:text-6xl font-bold text-foreground font-['Playfair_Display'] tracking-tight mb-4">
+          <h2 className="text-3xl lg:text-4xl font-medium text-foreground font-['Playfair_Display'] tracking-tight mb-3">
             {t.newsletter.title}
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl">
+          <p className="text-foreground/50 mb-8">
             {t.newsletter.subtitle}
           </p>
 
@@ -63,7 +63,7 @@ export function NewsletterSection() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="flex items-center gap-2 text-green-700 dark:text-green-400"
+              className="flex items-center gap-2 text-primary"
             >
               <CheckCircle className="w-5 h-5" />
               <span className="font-medium">{t.newsletter.success}</span>
@@ -75,14 +75,13 @@ export function NewsletterSection() {
                 placeholder={t.newsletter.placeholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-grow h-11 text-base bg-background border-border/50"
+                className="flex-grow bg-background border-border/30"
                 required
                 data-testid="input-email"
               />
               <Button
                 type="submit"
                 disabled={subscribeMutation.isPending}
-                className="h-11 px-6"
                 data-testid="button-subscribe"
               >
                 {subscribeMutation.isPending ? (

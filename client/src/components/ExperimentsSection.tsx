@@ -29,16 +29,19 @@ export function ExperimentsSection() {
   };
 
   return (
-    <section className="py-16 lg:py-24 px-6 border-t border-border/50">
-      <div className="max-w-4xl mx-auto">
+    <section id="experiments" className="py-20 lg:py-28 px-6 border-t border-border/30">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-10"
         >
-          <h2 className="text-4xl lg:text-6xl font-bold text-foreground font-['Playfair_Display'] tracking-tight">
+          <span className="text-xs tracking-[0.2em] text-foreground/40 uppercase mb-3 block">
+            {t.experiments.subtitle}
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-medium text-foreground font-['Playfair_Display'] tracking-tight">
             {t.experiments.title}
           </h2>
         </motion.div>
@@ -48,7 +51,7 @@ export function ExperimentsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8"
+          className="space-y-0"
         >
           {startups.map((startup, index) => (
             <motion.a
@@ -57,25 +60,23 @@ export function ExperimentsSection() {
               target="_blank"
               rel="noopener noreferrer"
               variants={itemVariants}
-              className="group block py-4 border-b border-border/30 hover:border-primary/50 transition-colors"
+              className="group flex items-baseline justify-between py-4 border-b border-border/20 hover:border-primary/30 transition-colors"
               data-testid={`link-experiment-${startup.id}`}
             >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <span className="text-3xl lg:text-4xl font-bold font-['Playfair_Display'] text-primary/30">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {startup.name}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground pl-12 lg:pl-14">
+              <div className="flex items-baseline gap-4">
+                <span className="text-sm font-mono text-foreground/30 w-6">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-base font-medium text-foreground group-hover:text-primary transition-colors">
+                    {startup.name}
+                  </h3>
+                  <p className="text-sm text-foreground/50 mt-1">
                     {startup.description[language]}
                   </p>
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors mt-1 flex-shrink-0" />
               </div>
+              <ArrowUpRight className="w-4 h-4 text-foreground/30 group-hover:text-primary transition-colors flex-shrink-0 opacity-0 group-hover:opacity-100" />
             </motion.a>
           ))}
         </motion.div>

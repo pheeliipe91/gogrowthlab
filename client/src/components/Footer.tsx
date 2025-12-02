@@ -11,15 +11,15 @@ export function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-12 border-t border-border/50"
+      className="py-16 border-t border-border/30"
     >
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-3">
-            <span className="font-bold text-foreground font-['Space_Grotesk']">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-foreground/40">
+          <div className="flex items-center gap-2">
+            <span className="font-medium text-foreground">
               {t.footer.lab}
             </span>
-            <span className="text-border">|</span>
+            <span className="text-foreground/20">·</span>
             <span>{t.footer.from}</span>
           </div>
           
