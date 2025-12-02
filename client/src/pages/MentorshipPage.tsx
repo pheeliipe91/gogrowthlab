@@ -5,30 +5,44 @@ import { ArrowLeft, CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { Link } from "wouter";
 import { Header } from "@/components/Header";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertMentorshipApplicationSchema, type InsertMentorshipApplication } from "@shared/schema";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 export default function MentorshipPage() {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [success, setSuccess] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    linkedin: "",
-    currentRole: "",
-    experience: "",
-    challenge: "",
-    expectations: "",
-    referral: "",
+
+  const form = useForm<InsertMentorshipApplication>({
+    resolver: zodResolver(insertMentorshipApplicationSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      linkedin: "",
+      currentRole: "",
+      experience: "",
+      challenge: "",
+      expectations: "",
+      referral: "",
+    },
   });
 
   const submitMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
+    mutationFn: async (data: InsertMentorshipApplication) => {
       const response = await apiRequest("POST", "/api/mentorship-applications", data);
       return response;
     },
@@ -48,16 +62,8 @@ export default function MentorshipPage() {
     },
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitMutation.mutate(formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  const onSubmit = (data: InsertMentorshipApplication) => {
+    submitMutation.mutate(data);
   };
 
   return (
@@ -139,124 +145,141 @@ export default function MentorshipPage() {
                   {t.mentorship.form.title}
                 </h2>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">{t.mentorship.form.name} *</Label>
-                      <Input
-                        id="name"
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
                         name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        data-testid="input-name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t.mentorship.form.name} *</FormLabel>
+                            <FormControl>
+                              <Input {...field} data-testid="input-name" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">{t.mentorship.form.email} *</Label>
-                      <Input
-                        id="email"
+                      <FormField
+                        control={form.control}
                         name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        data-testid="input-email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t.mentorship.form.email} *</FormLabel>
+                            <FormControl>
+                              <Input type="email" {...field} data-testid="input-email" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="linkedin">{t.mentorship.form.linkedin} *</Label>
-                      <Input
-                        id="linkedin"
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
                         name="linkedin"
-                        type="url"
-                        placeholder="https://linkedin.com/in/..."
-                        value={formData.linkedin}
-                        onChange={handleChange}
-                        required
-                        data-testid="input-linkedin"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t.mentorship.form.linkedin} *</FormLabel>
+                            <FormControl>
+                              <Input
+                                type="url"
+                                placeholder="https://linkedin.com/in/..."
+                                {...field}
+                                data-testid="input-linkedin"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="currentRole">{t.mentorship.form.currentRole} *</Label>
-                      <Input
-                        id="currentRole"
+                      <FormField
+                        control={form.control}
                         name="currentRole"
-                        value={formData.currentRole}
-                        onChange={handleChange}
-                        required
-                        data-testid="input-role"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t.mentorship.form.currentRole} *</FormLabel>
+                            <FormControl>
+                              <Input {...field} data-testid="input-role" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="experience">{t.mentorship.form.experience} *</Label>
-                    <Input
-                      id="experience"
+                    <FormField
+                      control={form.control}
                       name="experience"
-                      placeholder="Ex: 5 anos"
-                      value={formData.experience}
-                      onChange={handleChange}
-                      required
-                      data-testid="input-experience"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t.mentorship.form.experience} *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Ex: 5 anos" {...field} data-testid="input-experience" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="challenge">{t.mentorship.form.challenge} *</Label>
-                    <Textarea
-                      id="challenge"
+                    <FormField
+                      control={form.control}
                       name="challenge"
-                      rows={3}
-                      value={formData.challenge}
-                      onChange={handleChange}
-                      required
-                      data-testid="input-challenge"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t.mentorship.form.challenge} *</FormLabel>
+                          <FormControl>
+                            <Textarea rows={3} {...field} data-testid="input-challenge" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="expectations">{t.mentorship.form.expectations} *</Label>
-                    <Textarea
-                      id="expectations"
+                    <FormField
+                      control={form.control}
                       name="expectations"
-                      rows={3}
-                      value={formData.expectations}
-                      onChange={handleChange}
-                      required
-                      data-testid="input-expectations"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t.mentorship.form.expectations} *</FormLabel>
+                          <FormControl>
+                            <Textarea rows={3} {...field} data-testid="input-expectations" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="referral">{t.mentorship.form.referral} *</Label>
-                    <Input
-                      id="referral"
+                    <FormField
+                      control={form.control}
                       name="referral"
-                      value={formData.referral}
-                      onChange={handleChange}
-                      required
-                      data-testid="input-referral"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t.mentorship.form.referral} *</FormLabel>
+                          <FormControl>
+                            <Input {...field} data-testid="input-referral" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full sm:w-auto h-12 px-8"
-                    disabled={submitMutation.isPending}
-                    data-testid="button-submit"
-                  >
-                    {submitMutation.isPending ? (
-                      <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                    ) : null}
-                    {t.mentorship.form.submit}
-                  </Button>
-                </form>
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full sm:w-auto h-12 px-8"
+                      disabled={submitMutation.isPending}
+                      data-testid="button-submit"
+                    >
+                      {submitMutation.isPending ? (
+                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                      ) : null}
+                      {t.mentorship.form.submit}
+                    </Button>
+                  </form>
+                </Form>
               </section>
             )}
           </motion.div>

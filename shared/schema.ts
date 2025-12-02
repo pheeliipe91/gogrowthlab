@@ -115,6 +115,18 @@ export const insertMentorshipApplicationSchema = createInsertSchema(mentorshipAp
   challenge: true,
   expectations: true,
   referral: true,
+}).extend({
+  name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres").max(100),
+  email: z.string().email("Email inválido"),
+  linkedin: z.string().url("URL do LinkedIn inválida").refine(
+    (url) => url.includes("linkedin.com"),
+    "Deve ser uma URL do LinkedIn"
+  ),
+  currentRole: z.string().min(2, "Cargo deve ter pelo menos 2 caracteres").max(100),
+  experience: z.string().min(1, "Informe sua experiência").max(50),
+  challenge: z.string().min(10, "Descreva seu desafio com mais detalhes").max(1000),
+  expectations: z.string().min(10, "Descreva suas expectativas com mais detalhes").max(1000),
+  referral: z.string().min(2, "Informe como nos conheceu").max(200),
 });
 
 export type InsertMentorshipApplication = z.infer<typeof insertMentorshipApplicationSchema>;
