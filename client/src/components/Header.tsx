@@ -19,19 +19,7 @@ export function Header() {
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm"
     >
-      <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
-        <motion.a
-          href="/"
-          className="flex items-center gap-2 group"
-          whileHover={{ opacity: 0.7 }}
-          transition={{ duration: 0.2 }}
-          data-testid="link-home"
-        >
-          <span className="text-base font-medium tracking-tight text-foreground">
-            {t.hero.name}
-          </span>
-        </motion.a>
-
+      <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-end">
         <div className="flex items-center gap-5">
           <div className="hidden sm:flex items-center gap-1.5 text-sm text-foreground/40">
             <MapPin className="w-3 h-3" />
