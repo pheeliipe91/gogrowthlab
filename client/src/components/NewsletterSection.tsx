@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 import { motion } from "framer-motion";
-import { Mail, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -44,57 +44,52 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-primary/5 via-background to-primary/10" id="newsletter">
-      <div className="max-w-[600px] mx-auto px-6 lg:px-12 text-center">
+    <section className="py-16 lg:py-24 px-6 border-t border-border/50">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-            <Mail className="w-8 h-8 text-primary" />
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-foreground font-['Space_Grotesk'] mb-3">
+          <h2 className="text-4xl lg:text-6xl font-bold text-foreground font-['Playfair_Display'] tracking-tight mb-4">
             {t.newsletter.title}
           </h2>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-muted-foreground mb-8 max-w-xl">
             {t.newsletter.subtitle}
           </p>
 
           {success ? (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="flex items-center justify-center gap-2 text-green-600 bg-green-500/10 p-4 rounded-md"
+              className="flex items-center gap-2 text-green-700 dark:text-green-400"
             >
               <CheckCircle className="w-5 h-5" />
               <span className="font-medium">{t.newsletter.success}</span>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
               <Input
                 type="email"
                 placeholder={t.newsletter.placeholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-grow h-12 text-base"
+                className="flex-grow h-11 text-base bg-background border-border/50"
                 required
                 data-testid="input-email"
               />
               <Button
                 type="submit"
-                size="lg"
                 disabled={subscribeMutation.isPending}
-                className="h-12 px-8"
+                className="h-11 px-6"
                 data-testid="button-subscribe"
               >
                 {subscribeMutation.isPending ? (
-                  <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                  <Loader2 className="w-4 h-4 animate-spin" />
                 ) : (
-                  <Send className="w-4 h-4 mr-2" />
+                  t.newsletter.button
                 )}
-                {t.newsletter.button}
               </Button>
             </form>
           )}

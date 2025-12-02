@@ -1,185 +1,178 @@
-# Design Guidelines: GoGrowth.me - Solo Entrepreneur Portfolio
+# Design Guidelines: GoGrowth.me - Phelipe Xavier Portfolio
 
-## Design Approach
-**System**: Hybrid approach combining Linear's minimalist precision with Stripe's sophisticated restraint, enhanced with custom creative layouts that avoid generic patterns.
+## Design Direction
+Following the editorial aesthetic of balajmarius.com and jacobleech.com - clean, minimal, sophisticated single-column layout with strong typography and warm color palette.
 
-**Core Principle**: Demonstrate technical mastery through subtle sophistication, not flashy excess. Every animation must serve purpose and showcase senioridad.
-
----
-
-## Layout Architecture
-
-### Desktop: Asymmetric Three-Column Layout
-- **Left Column (30%)**: Startups list - fixed/sticky positioning
-- **Center Column (40%)**: Hero poem with typography animations, main content sections below
-- **Right Column (30%)**: Experience/companies - fixed/sticky positioning
-
-### Mobile: Stack vertically
-- Hero poem → Startups → Experience → Additional sections
-
-### Container Strategy
-- Full-width sections with inner `max-w-[1400px]` constraints
-- Generous horizontal padding: `px-8 lg:px-16`
-- Vertical rhythm: `py-16 lg:py-24` between major sections
+**Core Principle**: Demonstrate sophistication through restraint. Editorial, magazine-like feel with bold typography and generous whitespace.
 
 ---
 
-## Typography System
-
-**Primary Font**: Inter or Space Grotesk (via Google Fonts CDN)
-**Accent Font**: Playfair Display or Crimson Pro (for poem section only)
-
-**Hierarchy**:
-- Hero/Poem: `text-5xl lg:text-7xl` (accent font) - `font-light` to `font-medium`
-- Section Headers: `text-3xl lg:text-4xl` - `font-semibold`
-- Startup Names: `text-xl` - `font-medium`
-- Body Text: `text-base lg:text-lg` - `font-normal`
-- Supporting Text: `text-sm` - `font-light` with increased `tracking-wide`
-
-**Line Heights**: Generous spacing - `leading-relaxed` to `leading-loose` for readability
+## Brand Identity
+- **Owner**: Phelipe Xavier
+- **Lab/Brand**: gogrowth lab
+- **Location**: Kunshan, Jiangsu, China
 
 ---
 
 ## Color System
 
-**Primary Palette**:
-- Deep Wine: `#8B2346` (primary actions, accents)
-- Charcoal: `#2C2C2E` (headings, primary text)
-- Warm Gray: `#F5F5F7` (backgrounds)
-- Pure White: `#FFFFFF` (contrast sections)
+### Light Mode (Warm Parchment)
+- **Background**: HSL(38, 33%, 95%) - Warm cream/parchment
+- **Foreground**: HSL(20, 10%, 15%) - Dark charcoal text
+- **Primary (Wine)**: HSL(340, 75%, 32%) - Rich wine accent
+- **Muted**: HSL(35, 15%, 90%) - Subtle warm gray
+- **Border**: HSL(35, 15%, 85%) - Light warm border
 
-**Gradients** (use sparingly - 2-3 instances max):
-- Hero Background: `from-[#1a1a1a] via-[#2C2C2E] to-[#3a2630]`
-- Accent Overlays: `from-[#8B2346]/20 to-transparent`
+### Dark Mode (Warm Charcoal)
+- **Background**: HSL(25, 15%, 8%) - Deep warm charcoal
+- **Foreground**: HSL(38, 20%, 92%) - Light warm text
+- **Primary (Wine)**: HSL(340, 72%, 48%) - Brighter wine for dark mode
 
-**Semantic**:
-- Links/Hover: Wine with 10% opacity increase
-- Borders: `border-gray-200` or `border-white/10` on dark backgrounds
-- Text on dark: `text-gray-100`
-- Text on light: `text-gray-900`
+### Usage
+- Primary wine for links, accents, CTAs
+- Borders: 50% opacity for subtle dividers
+- No harsh contrasts - warm tones throughout
 
 ---
 
-## Spacing System
-**Tailwind Units**: Consistently use `2, 4, 6, 8, 12, 16, 24`
+## Typography System
 
-- Component internal padding: `p-6` to `p-8`
-- Card spacing: `gap-8`
-- Section margins: `my-16` to `my-24`
-- Grid gaps: `gap-6 lg:gap-8`
+### Font Families
+- **Headlines**: Playfair Display (serif) - Bold, italic for emphasis
+- **Body**: Space Grotesk (sans-serif) - Clean, modern
+- **Mono**: JetBrains Mono - Code and technical content
+
+### Type Scale
+- Section titles: `text-4xl lg:text-6xl` - Playfair Display, bold
+- Hero tagline: `text-3xl lg:text-5xl` - Mixed serif/sans for emphasis
+- Body: `text-base lg:text-lg` - Space Grotesk
+- Small text: `text-sm` - Muted foreground
+
+### Editorial Treatments
+- **Italic emphasis**: Key words use `font-['Playfair_Display'] italic`
+- **Section headers**: Bold serif, large scale
+- **Numbered entries**: Two-digit format (01, 02) in primary/30 opacity
+- **No emojis**: Use lucide-react icons only
+
+---
+
+## Layout Architecture
+
+### Structure
+- Single-column, content-focused layout
+- Max width: `max-w-4xl` for content
+- Generous padding: `px-6` on all screens
+
+### Section Order
+1. **Header**: Fixed, minimal - name + location + language toggle
+2. **Hero**: Tagline with italic emphasis + bio paragraphs
+3. **Experiments**: Numbered grid of 10 ventures
+4. **Experience**: Clean list of 8 companies (name/role/dates)
+5. **Resources**: Framework cards for download
+6. **Newsletter**: Simple subscription form
+7. **Footer**: Minimal with lab name and location
+
+### Spacing
+- Section padding: `py-16 lg:py-24`
+- Element gaps: `space-y-8` major, `space-y-4` minor
+- Section dividers: `border-t border-border/50`
 
 ---
 
 ## Core Components
 
-### Startup Cards (Left Column)
-- Minimalist list with hover states
-- Each item: Logo area + Name + Subtle arrow indicator
-- Hover: Background wine gradient fade-in (200ms), slight scale (1.02)
-- Divider lines between items: `border-b border-gray-200`
+### Header
+- Fixed position with backdrop blur
+- Height: `h-14`
+- Name on left, location + language on right
+- Language selector: text buttons with `/` separator
 
-### Animated Poem Section (Center)
-- Large typography with line-by-line fade-in on scroll
-- **Highlight words** "confiar" and "aprender" with wine color + slightly larger weight
-- Stagger animation delay: 150ms per line
-- Use `opacity` and `translateY` transforms only
+### Hero Section
+- Tagline: Sans + serif italic mix
+- Bio: Two paragraphs, muted color, max-w-2xl
 
-### Experience Cards (Right Column)
-- Logo + Company name in vertical stack
-- Subtle hover: Wine border-left accent (3px) slides in
-- Minimal design - let logos speak
+### Experiments Section
+- Two-column grid on desktop
+- Each item: Large number + name + description + arrow
+- Border-bottom between items
+- Hover: border-primary/50
 
-### Frameworks Section (Gumroad)
-- Card grid: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`
-- Each framework: Icon/thumbnail + Title + Brief description + Download CTA
-- CTA buttons: Wine background with charcoal text on hover
+### Experience Section
+- Single column list
+- Grid: company (4 cols) | role (5 cols) | date (3 cols)
+- Hover: subtle background highlight
 
-### Study Section
-- Timeline or card-based layout
-- Current focus highlighted with wine accent border
-- Icons from Heroicons CDN
+### Frameworks Section
+- Three-column grid
+- Cards: border, padding, hover states
+- Download link with arrow icon
 
-### Language Selector
-- Minimal flag/text toggle in top-right header
-- Smooth content transition: `transition-opacity duration-300`
+### Newsletter Section
+- Horizontal form on desktop
+- Input + button inline
+- Success state with checkmark
 
----
-
-## Navigation
-**Minimal Top Bar**:
-- Logo/Name left
-- Language selector right
-- Sticky on scroll with subtle backdrop blur: `backdrop-blur-md bg-white/80`
-- Height: `h-16 lg:h-20`
+### Footer
+- Lab name + location on left
+- Copyright on right
 
 ---
 
 ## Animation Principles
 
 **Allowed**:
-- Scroll-triggered fade-ins for poem lines
-- Hover micro-interactions on cards (200-300ms)
-- Page load hero animation (single occurrence)
-- Smooth language transitions
+- Scroll-triggered fade-ins (opacity + translateY)
+- Hover micro-interactions (200-300ms)
+- Page load stagger animations
+
+**Parameters**:
+- Duration: 400-600ms
+- Ease: `[0.4, 0, 0.2, 1]` (cubic-bezier)
+- Stagger: 60-100ms between items
 
 **Forbidden**:
-- Parallax effects
 - Continuous looping animations
+- Parallax effects
 - Excessive particle systems
-- Carousel auto-play
-
-**Timing**: All transitions use `ease-out` or `cubic-bezier(0.4, 0, 0.2, 1)`
+- Auto-playing carousels
 
 ---
 
-## Images
+## Responsive Behavior
 
-**No large hero image** - the animated poem IS the hero
+### Breakpoints
+- Mobile: < 640px (single column)
+- Tablet: 640-1024px (adjust grid)
+- Desktop: > 1024px (full layout)
 
-**Logo/Icon Usage**:
-- Startup logos: SVG preferred, 48x48px to 64x64px
-- Company logos: Grayscale with wine tint on hover
-- Use image placeholders with company names if logos unavailable
-
-**Framework Thumbnails**: 
-- 16:9 aspect ratio preview images
-- Subtle shadow: `shadow-lg`
-- Hover: Lift effect with increased shadow
+### Mobile Adaptations
+- Single column layouts
+- Smaller typography
+- Touch-friendly tap targets (min h-11)
+- Stack forms vertically
 
 ---
 
 ## Accessibility & SEO
 
 - Semantic HTML5 structure
-- ARIA labels on language selector and external links
-- Alt text for all images
-- Meta tags: Open Graph + Twitter Cards for all three languages
-- Structured data: Person schema with multilingual properties
-- `lang` attribute switching per language selection
-
----
-
-## Mobile Responsiveness
-
-**Breakpoints**: Follow Tailwind defaults (sm: 640px, md: 768px, lg: 1024px, xl: 1280px)
-
-**Mobile Adaptations**:
-- Three columns stack vertically
-- Poem text scales to `text-4xl`
-- Touch-friendly tap targets: minimum `h-12`
-- Horizontal scroll for startup/company lists if needed
-- Hamburger menu NOT needed (minimal navigation)
+- ARIA labels on interactive elements
+- Alt text for images
+- Data-testid on all interactive elements
+- Meta tags: Open Graph + Twitter Cards
+- Structured data: Person schema
+- `lang` attribute per language
 
 ---
 
 ## Technical Constraints
 
-- **Icons**: Heroicons via CDN (outline style for consistency)
-- **Fonts**: Google Fonts CDN, preload critical fonts
-- **No custom SVG generation** - use icon libraries
-- **Resend Integration**: Email capture form in footer or dedicated section
-- **Gumroad**: Direct links with tracking parameters
+- **Icons**: lucide-react (consistent style)
+- **Fonts**: Google Fonts via @font-face
+- **i18n**: PT/EN/ZH support with localStorage
+- **Animations**: Framer Motion
+- **API**: Newsletter subscription via backend
 
 ---
 
-**Final Note**: This design balances sophisticated minimalism with purposeful impact. The asymmetric three-column layout breaks conventional patterns while maintaining professional credibility. Every element serves the narrative of a senior solo entrepreneur who understands that less is more - except when more is necessary to impress.
+**Final Note**: This design prioritizes editorial sophistication and warm, approachable aesthetics. The single-column layout focuses attention on content while bold typography creates visual hierarchy. Every element serves the narrative of a senior entrepreneur who values clarity and quality over complexity.

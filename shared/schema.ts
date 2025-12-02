@@ -55,6 +55,7 @@ export interface Company {
     en: string;
     zh: string;
   };
+  period?: string;
 }
 
 // Framework type for Gumroad downloads

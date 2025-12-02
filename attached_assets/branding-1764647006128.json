@@ -1,0 +1,123 @@
+{
+  "colorScheme": "dark",
+  "fonts": [
+    {
+      "family": "Segoe UI",
+      "role": "body"
+    },
+    {
+      "family": "Apple Color Emoji",
+      "role": "body"
+    },
+    {
+      "family": "Noto Color Emoji",
+      "role": "body"
+    },
+    {
+      "family": "Segoe UI Emoji",
+      "role": "body"
+    },
+    {
+      "family": "Segoe UI Symbol",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#34384C",
+    "accent": "#649BFB",
+    "background": "#1A1A1A",
+    "textPrimary": "#0E63FF",
+    "link": "#0E63FF"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Segoe UI",
+      "heading": "Segoe UI"
+    },
+    "fontStacks": {
+      "heading": [
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI",
+        "Noto Color Emoji"
+      ],
+      "body": [
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI",
+        "Noto Color Emoji"
+      ],
+      "paragraph": [
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI",
+        "Noto Color Emoji"
+      ]
+    },
+    "fontSizes": {
+      "h1": "30px",
+      "h2": "16px",
+      "body": "16px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 8,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "0px"
+    },
+    "buttonPrimary": {
+      "background": "#649BFB",
+      "textColor": "#34384C",
+      "borderRadius": "4px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "File saved at: attached_assets/favicon.svg",
+    "ogImage": "/og-image.png"
+  },
+  "__framework_hints": [],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "The logo in the header matches the brand name 'Marius Bălaj' and is visible, making it the primary brand logo.",
+    "confidence": 0.95
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Menu",
+      "reasoning": "The button 'Menu' has a vibrant blue background (#649BFB), which is a strong indicator for a primary CTA. It is action-oriented and stands out against the dark theme of the website."
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "There is no secondary button available with a different background color. The only button present is the primary button."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "medium",
+    "targetAudience": "tech-savvy individuals and professionals"
+  },
+  "designSystem": {
+    "framework": "tailwind",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}
