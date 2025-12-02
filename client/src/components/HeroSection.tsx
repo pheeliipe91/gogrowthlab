@@ -1,8 +1,9 @@
 import { useLanguage } from "@/lib/LanguageContext";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -52,21 +53,16 @@ export function HeroSection() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button
-              asChild
-              size="lg"
-              className="h-12 px-6"
-              data-testid="button-mentorship"
-            >
-              <a
-                href="https://forms.gle/mentorship"
-                target="_blank"
-                rel="noopener noreferrer"
+            <Link href="/mentoria">
+              <Button
+                size="lg"
+                className="h-12 px-6"
+                data-testid="button-mentorship"
               >
                 {t.hero.mentorshipCta}
-                <ArrowUpRight className="ml-2 w-4 h-4" />
-              </a>
-            </Button>
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
             <Button
               asChild
               variant="outline"

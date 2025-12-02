@@ -6,11 +6,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import MentorshipPage from "@/pages/MentorshipPage";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/mentoria" component={MentorshipPage} />
       <Route component={NotFound} />
     </Switch>
   );
