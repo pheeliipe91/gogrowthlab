@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import profilePhoto from "@assets/image_1764726921551.png";
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -17,6 +18,20 @@ export function HeroSection() {
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           className="space-y-10"
         >
+          <div className="flex flex-col items-start gap-4">
+            <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-foreground/10">
+              <img 
+                src={profilePhoto} 
+                alt="Phelipe Xavier"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-lg font-medium text-foreground">Phelipe Xavier</h2>
+              <p className="text-sm text-foreground/50">夏腓力</p>
+            </div>
+          </div>
+
           <header>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight text-foreground tracking-tight font-light">
               {t.hero.headline1}{" "}
