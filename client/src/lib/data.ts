@@ -118,18 +118,18 @@ export const companies: Company[] = [
     id: "1",
     name: "bt.créditos",
     role: {
-      pt: "Mentoria",
-      en: "Mentoring",
-      zh: "导师",
+      pt: "CX-CS and Marketing Manager",
+      en: "CX-CS and Marketing Manager",
+      zh: "客户体验与营销经理",
     },
   },
   {
     id: "2",
     name: "Fotop",
     role: {
-      pt: "Consultoria",
-      en: "Consulting",
-      zh: "咨询",
+      pt: "Head of Marketing",
+      en: "Head of Marketing",
+      zh: "营销总监",
     },
   },
   {

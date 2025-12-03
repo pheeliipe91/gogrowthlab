@@ -56,20 +56,15 @@ export function ExperienceSection() {
             <motion.div
               key={company.id}
               variants={itemVariants}
-              className="group flex items-baseline justify-between py-4 border-b border-border/20"
+              className="group py-4 border-b border-border/20"
               data-testid={`row-company-${company.id}`}
             >
-              <div className="flex-1">
-                <h3 className="font-medium text-foreground">
-                  {company.name}
-                </h3>
-                <p className="text-sm text-foreground/50 mt-0.5">
-                  {company.role[language]}
-                </p>
-              </div>
-              <span className="text-sm text-foreground/40 flex-shrink-0 ml-4">
-                {company.period || t.experience.present}
-              </span>
+              <h3 className="font-medium text-foreground">
+                {company.name}
+              </h3>
+              <p className="text-sm text-foreground/50 mt-0.5">
+                {company.role[language]}
+              </p>
             </motion.div>
           ))}
         </motion.div>
