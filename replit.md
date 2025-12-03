@@ -1,13 +1,13 @@
 # GoGrowth.me - Phelipe Xavier Portfolio
 
 ## Overview
-Portfolio pessoal de Phelipe Xavier, serial empreendedor baseado em Kunshan, Jiangsu, China. O site segue estética editorial inspirada em balajmarius.com, apresentando o gogrowth lab com experimentos/ventures, experiência profissional, frameworks para download, e newsletter.
+Portfolio pessoal de Phelipe Xavier, empreendedor baseado em Kunshan, Jiangsu, China. O site segue estética editorial minimalista com fundo cinza chumbo, apresentando o gogrowth lab com experimentos/ventures, experiência profissional, frameworks para download, e newsletter.
 
 ## Estado Atual
 - **Status**: MVP funcional e completo
 - **Última Atualização**: Dezembro 2025
 - **Stack**: React + Express + TypeScript
-- **Design**: Editorial single-column (balajmarius.com style)
+- **Design**: Editorial dark mode com fundo cinza chumbo (#1d1f24) e accent dourado/âmbar
 
 ## Arquitetura
 
@@ -43,10 +43,10 @@ server/
 ## Design System
 
 ### Paleta de Cores
-- **Background**: HSL(38, 33%, 95%) - Parchment/cream quente
-- **Foreground**: HSL(20, 10%, 15%) - Charcoal escuro
-- **Primary**: HSL(340, 75%, 32%) - Wine accent
-- **Muted**: HSL(35, 15%, 90%) - Warm gray
+- **Background**: HSL(220, 10%, 12%) - Cinza chumbo escuro
+- **Foreground**: HSL(40, 15%, 90%) - Texto claro/creme
+- **Primary**: HSL(35, 85%, 55%) - Dourado/âmbar
+- **Muted**: HSL(220, 6%, 18%) - Cinza neutro
 
 ### Tipografia
 - **Headlines**: Playfair Display (serif, bold)
