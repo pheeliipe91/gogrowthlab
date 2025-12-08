@@ -37,8 +37,13 @@ export function HeroSection() {
               {t.hero.headline1}{" "}
               <span className="font-['Playfair_Display'] italic font-normal text-primary">{t.hero.headline1Italic}</span>
               <br />
-              {t.hero.headline2}{" "}
-              <span className="font-['Playfair_Display'] italic font-normal text-primary">{t.hero.headline2Italic}</span>
+              {t.hero.headline2}
+              {t.hero.headline2Italic && (
+                <span className="font-['Playfair_Display'] italic font-normal text-primary"> {t.hero.headline2Italic}</span>
+              )}
+              <br />
+              {t.hero.headline3}{" "}
+              <span className="font-['Playfair_Display'] italic font-normal text-primary">{t.hero.headline3Italic}</span>
             </h1>
           </header>
 
