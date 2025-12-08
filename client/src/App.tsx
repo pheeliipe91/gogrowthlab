@@ -8,6 +8,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import MentorshipPage from "@/pages/MentorshipPage";
 import Researches from "@/pages/Researches";
+import ChineseLearningResearch from "@/pages/ChineseLearningResearch";
 
 function Router() {
   return (
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/mentoria" component={MentorshipPage} />
       <Route path="/researches" component={Researches} />
+      <Route path="/researches/chinese-learning" component={ChineseLearningResearch} />
       <Route component={NotFound} />
     </Switch>
   );
