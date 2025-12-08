@@ -3,10 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/LanguageContext";
+import { SEO } from "@/components/SEO";
 
 export default function ChineseLearningResearch() {
   const { language } = useLanguage();
-  
+
   const backLabel = {
     pt: "Voltar",
     en: "Back",
@@ -15,6 +16,12 @@ export default function ChineseLearningResearch() {
 
   return (
     <div className="min-h-screen bg-[#FAF9F6]" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <SEO
+        title="Powerful Chinese Learning Tactics | GoGrowth.me"
+        description="A comprehensive guide synthesizing millennia of Chinese learning tradition with modern cognitive science."
+        canonical="/researches/chinese-learning"
+        type="article"
+      />
       <style>{`
         .serif-display { font-family: 'Crimson Text', serif; }
         .insight-highlight {

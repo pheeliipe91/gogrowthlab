@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, BookOpen } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 export default function Researches() {
   const { language } = useLanguage();
@@ -55,6 +56,11 @@ export default function Researches() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${t.pageTitle} | GoGrowth.me`}
+        description={t.pageSubtitle}
+        canonical="/researches"
+      />
       <div className="max-w-4xl mx-auto px-6 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

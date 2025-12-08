@@ -10,6 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { Link } from "wouter";
 import { Header } from "@/components/Header";
+import { SEO } from "@/components/SEO";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertMentorshipApplicationSchema, type InsertMentorshipApplication } from "@shared/schema";
@@ -68,8 +69,13 @@ export default function MentorshipPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${t.mentorship.title} | GoGrowth.me`}
+        description={t.mentorship.description}
+        canonical="/mentoria"
+      />
       <Header />
-      
+
       <main className="pt-28 pb-16 lg:pt-36 lg:pb-24 px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -106,7 +112,7 @@ export default function MentorshipPage() {
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
                 {t.mentorship.method}
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 py-6 border-y border-border/50">
                 <div className="flex-1">
                   <p className="text-2xl font-bold text-primary font-['Playfair_Display']">
@@ -144,7 +150,7 @@ export default function MentorshipPage() {
                 <h2 className="text-2xl lg:text-3xl font-bold text-foreground font-['Playfair_Display'] mb-8">
                   {t.mentorship.form.title}
                 </h2>
-                
+
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
