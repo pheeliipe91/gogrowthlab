@@ -1,0 +1,962 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2865
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red17\green18\blue18;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000\c83922;\cssrgb\c8627\c9020\c9020;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <!DOCTYPE html><html lang="en"><head>\
+    <meta charset="UTF-8"/>\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>\
+    <title>A Practical Guide to Powerful Chinese Learning Tactics</title>\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>\
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>\
+    <style>\
+        :root \{\
+            --sage-green: #8B9A8B;\
+            --warm-beige: #F5F1E8;\
+            --deep-forest: #2D4A2B;\
+            --muted-gold: #D4AF37;\
+            --soft-grey: #6B7280;\
+            --cream: #FAF9F6;\
+        \}\
+        \
+        body \{\
+            font-family: 'Inter', sans-serif;\
+            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-beige) 100%);\
+            color: var(--deep-forest);\
+            line-height: 1.7;\
+            overflow-x: hidden;\
+        \}\
+        \
+        .serif-display \{\
+            font-family: 'Crimson Text', serif;\
+        \}\
+        \
+        .hero-gradient \{\
+            background: linear-gradient(135deg, \
+                rgba(45, 74, 43, 0.9) 0%, \
+                rgba(139, 154, 139, 0.8) 50%, \
+                rgba(212, 175, 55, 0.6) 100%);\
+        \}\
+        \
+        .toc-fixed \{\
+            position: fixed;\
+            top: 0;\
+            left: 0;\
+            width: 280px;\
+            height: 100vh;\
+            background: rgba(250, 249, 246, 0.95);\
+            backdrop-filter: blur(10px);\
+            border-right: 1px solid rgba(139, 154, 139, 0.2);\
+            z-index: 1000;\
+            overflow-y: auto;\
+            padding: 2rem 1.5rem;\
+        \}\
+        \
+        .main-content \{\
+            margin-left: 280px;\
+            min-height: 100vh;\
+        \}\
+        \
+        .bento-grid \{\
+            display: grid;\
+            grid-template-columns: 2fr 1fr;\
+            grid-template-rows: auto auto;\
+            gap: 2rem;\
+            height: 70vh;\
+        \}\
+        \
+        .bento-hero \{\
+            grid-row: 1 / -1;\
+            position: relative;\
+            overflow: hidden;\
+            border-radius: 1rem;\
+        \}\
+        \
+        .bento-summary \{\
+            background: rgba(255, 255, 255, 0.8);\
+            backdrop-filter: blur(5px);\
+            border-radius: 1rem;\
+            padding: 2rem;\
+        \}\
+        \
+        .scroll-indicator \{\
+            position: fixed;\
+            top: 0;\
+            left: 280px;\
+            right: 0;\
+            height: 3px;\
+            background: rgba(139, 154, 139, 0.2);\
+            z-index: 999;\
+        \}\
+        \
+        .scroll-progress \{\
+            height: 100%;\
+            background: linear-gradient(90deg, var(--sage-green), var(--muted-gold));\
+            width: 0%;\
+            transition: width 0.1s ease;\
+        \}\
+        \
+        .citation-link \{\
+            color: var(--muted-gold);\
+            text-decoration: none;\
+            font-weight: 500;\
+            transition: all 0.3s ease;\
+        \}\
+        \
+        .citation-link:hover \{\
+            color: var(--deep-forest);\
+            text-decoration: underline;\
+        \}\
+        \
+        .insight-highlight \{\
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.1) 0%, rgba(139, 154, 139, 0.1) 100%);\
+            border-left: 4px solid var(--muted-gold);\
+            padding: 1.5rem;\
+            margin: 2rem 0;\
+            border-radius: 0 0.5rem 0.5rem 0;\
+        \}\
+        \
+        .ancient-pattern \{\
+            background-image: \
+                radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 2px, transparent 2px),\
+                radial-gradient(circle at 75% 75%, rgba(139, 154, 139, 0.1) 1px, transparent 1px);\
+            background-size: 40px 40px;\
+        \}\
+        \
+        @media (max-width: 1024px) \{\
+            .toc-fixed \{\
+                transform: translateX(-100%);\
+                transition: transform 0.3s ease;\
+            \}\
+            \
+            .toc-fixed.mobile-open \{\
+                transform: translateX(0);\
+            \}\
+            \
+            .main-content \{\
+                margin-left: 0;\
+            \}\
+            \
+            .bento-grid \{\
+                grid-template-columns: 1fr;\
+                grid-template-rows: auto auto auto;\
+                height: auto;\
+            \}\
+            \
+            .bento-hero \{\
+                grid-row: 1;\
+                height: 50vh;\
+            \}\
+        \}\
+        \
+        @media (max-width: 768px) \{\
+            .bento-grid \{\
+                grid-template-rows: auto auto auto;\
+            \}\
+            \
+            .bento-hero \{\
+                height: 40vh;\
+            \}\
+            \
+            .bento-hero .absolute \{\
+                padding: 0 1rem;\
+            \}\
+            \
+            .bento-hero h1 \{\
+                font-size: 2.5rem;\
+            \}\
+            \
+            .bento-summary \{\
+                padding: 1.5rem;\
+            \}\
+        \}\
+        \
+        @media (max-width: 480px) \{\
+            .bento-hero \{\
+                height: 35vh;\
+            \}\
+            \
+            .bento-hero h1 \{\
+                font-size: 2rem;\
+            \}\
+            \
+            .bento-hero p \{\
+                font-size: 1rem;\
+            \}\
+        \}\
+    </style>\
+  <base target="_blank">\
+</head>\
+\
+  <body>\
+    <!-- Scroll Progress Indicator -->\
+    <div class="scroll-indicator">\
+      <div class="scroll-progress" id="scrollProgress"></div>\
+    </div>\
+\
+    <!-- Mobile TOC Toggle -->\
+    <button id="tocToggle" class="fixed top-4 left-4 z-50 lg:hidden bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">\
+      <i class="fas fa-bars text-deep-forest"></i>\
+    </button>\
+\
+    <!-- Table of Contents -->\
+    <nav id="tableOfContents" class="toc-fixed">\
+      <div class="mb-8">\
+        <h3 class="serif-display text-lg font-semibold text-deep-forest mb-4">Contents</h3>\
+        <div class="space-y-2 text-sm">\
+          <a href="#introduction" class="block py-2 px-3 rounded-lg hover:bg-sage-green/10 transition-colors">Introduction</a>\
+          <a href="#memory-power" class="block py-2 px-3 rounded-lg hover:bg-sage-green/10 transition-colors">1. The Enduring Power of Memory</a>\
+          <div class="ml-4 space-y-1">\
+            <a href="#ancient-foundations" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Ancient Foundations</a>\
+            <a href="#modern-adaptations" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Modern Adaptations</a>\
+            <a href="#practical-toolkit" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Practical Toolkit</a>\
+          </div>\
+          <a href="#confucian-framework" class="block py-2 px-3 rounded-lg hover:bg-sage-green/10 transition-colors">2. The Confucian Framework</a>\
+          <div class="ml-4 space-y-1">\
+            <a href="#core-tenets" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Core Tenets</a>\
+            <a href="#masters-method" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Master&#39;s Method</a>\
+            <a href="#modern-relevance" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Modern Relevance</a>\
+          </div>\
+          <a href="#imperial-legacy" class="block py-2 px-3 rounded-lg hover:bg-sage-green/10 transition-colors">3. Imperial Examination Legacy</a>\
+          <div class="ml-4 space-y-1">\
+            <a href="#gaokao-influence" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Gaokao&#39;s Ancestor</a>\
+            <a href="#study-regimens" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Study Regimens</a>\
+            <a href="#exam-strategies" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Exam Strategies</a>\
+          </div>\
+          <a href="#synthesis" class="block py-2 px-3 rounded-lg hover:bg-sage-green/10 transition-colors">4. The Synthesis</a>\
+          <div class="ml-4 space-y-1">\
+            <a href="#blending-techniques" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Blending Techniques</a>\
+            <a href="#active-construction" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Active Construction</a>\
+            <a href="#practical-framework" class="block py-1 px-3 text-xs text-soft-grey hover:text-deep-forest transition-colors">Practical Framework</a>\
+          </div>\
+        </div>\
+      </div>\
+    </nav>\
+\
+    <!-- Main Content -->\
+    <main class="main-content">\
+      <!-- Hero Section with Bento Layout -->\
+      <section id="introduction" class="min-h-screen relative overflow-hidden ancient-pattern">\
+        <div class="container mx-auto px-4 sm:px-6 py-12">\
+          <div class="bento-grid">\
+            <!-- Hero Image Panel -->\
+            <div class="bento-hero hero-gradient relative">\
+              <img src="https://kimi-web-img.moonshot.cn/img/m.newsduan.com/aa7913efec92754302704bd68d09bf307686ee9d.jpeg" alt="Ancient Chinese scholar studying in a traditional library" class="w-full h-full object-cover opacity-60" size="large" aspect="wide" color="brown" style="photo" query="ancient chinese scholar studying in traditional library" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>\
+              <div class="absolute inset-0 bg-gradient-to-t from-deep-forest/80 via-transparent to-transparent"></div>\
+              <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">\
+                <h1 class="serif-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">\
+                  <em class="italic">A Practical Guide to</em>\
+                  <br/>\
+                  Powerful Chinese\
+                  <br/>\
+                  <span class="text-muted-gold">Learning Tactics</span>\
+                </h1>\
+                <p class="text-white/90 text-base md:text-lg max-w-2xl">\
+                  From Ancient Wisdom to Modern Mastery: Unlocking 2,500 Years of Scholarly Tradition\
+                </p>\
+              </div>\
+            </div>\
+\
+            <!-- Executive Summary Panel -->\
+            <div class="bento-summary">\
+              <h3 class="serif-display text-xl font-semibold text-deep-forest mb-4">Executive Summary</h3>\
+              <p class="text-sm text-soft-grey mb-4">\
+                This comprehensive guide synthesizes millennia of Chinese learning tradition with modern cognitive science, offering a practical framework for mastering complex subjects.\
+              </p>\
+              <div class="space-y-3 text-sm">\
+                <div class="flex items-start space-x-3">\
+                  <i class="fas fa-brain text-muted-gold mt-1"></i>\
+                  <div>\
+                    <strong>Memory Mastery:</strong> Ancient mnemonic techniques validated by neuroscience\
+                  </div>\
+                </div>\
+                <div class="flex items-start space-x-3">\
+                  <i class="fas fa-yin-yang text-muted-gold mt-1"></i>\
+                  <div>\
+                    <strong>Confucian Framework:</strong> The dynamic cycle of learning, thinking, and doing\
+                  </div>\
+                </div>\
+                <div class="flex items-start space-x-3">\
+                  <i class="fas fa-scroll text-muted-gold mt-1"></i>\
+                  <div>\
+                    <strong>Imperial Legacy:</strong> Structured discipline from 1,300 years of examination culture\
+                  </div>\
+                </div>\
+              </div>\
+            </div>\
+          </div>\
+        </div>\
+      </section>\
+\
+      <!-- Section 1: The Enduring Power of Memory -->\
+      <section id="memory-power" class="py-16 px-6">\
+        <div class="container mx-auto max-w-4xl">\
+          <header class="mb-12">\
+            <h2 class="serif-display text-4xl font-bold text-deep-forest mb-4">\
+              The Enduring Power of Memory\
+            </h2>\
+            <p class="text-xl text-soft-grey leading-relaxed">\
+              Mnemonic Techniques Across Millennia: From Imperial Examinations to Modern Mastery\
+            </p>\
+          </header>\
+\
+          <div class="prose prose-lg max-w-none">\
+            <p class="text-lg leading-relaxed mb-8">\
+              The Chinese learning tradition, stretching back thousands of years, has always placed a profound emphasis on the power of memory. From the ancient scholars preparing for the grueling imperial examinations to modern students mastering complex subjects, the ability to retain and recall vast amounts of information has been a cornerstone of academic and professional success.\
+            </p>\
+\
+            <!-- Ancient Foundations Subsection -->\
+            <div id="ancient-foundations" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">Ancient Foundations: Mnemonics in the Imperial Examination System</h3>\
+\
+              <div class="insight-highlight">\
+                <h4 class="font-semibold text-deep-forest mb-3">\
+                  <i class="fas fa-crown text-muted-gold mr-2"></i>\
+                  The Imperial Examination System (k\uc0\u275 j\u468  \u31185 \u20030 )\
+                </h4>\
+                <p class="mb-0">\
+                  For over 1,300 years, this system dominated Chinese education, requiring candidates to memorize entire classical texts and demonstrate mastery through rigorous, timed essays. The pressure to succeed, which could elevate a family&#39;s social standing for generations, created powerful incentives to perfect cognitive tools.\
+                </p>\
+              </div>\
+\
+              <div class="grid md:grid-cols-2 gap-8 mb-8">\
+                <div>\
+                  <h4 class="serif-display text-xl font-semibold text-deep-forest mb-4">The Art of Rhyme and Rhythm</h4>\
+                  <p class="mb-4">\
+                    One of the most pervasive mnemonic techniques was <strong>&#34;k\uc0\u466 uju\'e9&#34; (\u21475 \u35776 )</strong>, or &#34;oral formulas.&#34; These rhythmic chants transformed factual information into memorable verses.\
+                  </p>\
+                  <blockquote class="border-l-4 border-muted-gold pl-4 italic text-soft-grey bg-sage-green/5 p-4 rounded-r-lg">\
+                    &#34;T\'e1ng Y\'e1o Y\'fa Sh\'f9n Xi\'e0 Sh\uc0\u257 ng Zh\u333 u, Q\'edn H\'e0n W\'e8i J\'ecn N\'e1n B\u283 i Ch\'e1o, Su\'ed T\'e1ng W\u468  D\'e0i Sh\'ed Gu\'f3 S\'f2ng, Yu\'e1n M\'edng Q\u299 ng M\'edn D\'e0o G\'f2ngh\'e9&#34;\
+                    <footer class="text-sm mt-2 not-italic">\
+                      \'97 Rhyme for Chinese dynasties, encapsulating 4,000+ years of history\
+                      <a href="https://zhuanlan.zhihu.com/p/129082473" class="citation-link ml-1">[259]</a>\
+                    </footer>\
+                  </blockquote>\
+                </div>\
+\
+                <div>\
+                  <h4 class="serif-display text-xl font-semibold text-deep-forest mb-4">Matteo Ricci&#39;s Memory Palace</h4>\
+                  <p class="mb-4">\
+                    The Jesuit missionary <strong>Matteo Ricci</strong> brought the Method of Loci to China in the 16th century, writing <em>\uc0\u12298 \u35199 \u22269 \u35760 \u27861 \u12299 </em> (&#34;The Western Method of Memory&#34;) to teach Chinese nobles.\
+                  </p>\
+                  <p class="text-sm text-soft-grey">\
+                    This technique involves visualizing a familiar physical location and placing items to be remembered at specific &#34;loci&#34; along a predetermined route.\
+                    <a href="https://www.chinese-forums.com/forums/topic/31221-%E3%80%8A%E8%A5%BF%E5%9B%BD%E8%AE%B0%E6%B3%95%E3%80%8Bby-matteo-ricci-1552-1616-ce/" class="citation-link ml-1">[242]</a>\
+                  </p>\
+                </div>\
+              </div>\
+            </div>\
+\
+            <!-- Modern Adaptations Subsection -->\
+            <div id="modern-adaptations" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">Modern Adaptations: Scientifically-Backed Memory Methods</h3>\
+\
+              <div class="bg-white/70 rounded-xl p-6 mb-6">\
+                <h4 class="font-semibold text-deep-forest mb-4">\
+                  <i class="fas fa-flask text-muted-gold mr-2"></i>\
+                  Schema-Associated Mnemonics for Classical Texts\
+                </h4>\
+                <p class="mb-4">\
+                  A 2023 study in <em>Scientific Reports</em> provided empirical validation for the &#34;Schema-Associated Mnemonic Method&#34; for classical Chinese poetry. This technique connects new information to existing knowledge structures, significantly improving both memory efficiency and retention.\
+                </p>\
+\
+                <div class="overflow-x-auto">\
+                  <table class="w-full text-sm">\
+                    <thead>\
+                      <tr class="border-b border-sage-green/30">\
+                        <th class="text-left py-3 px-4">Metric</th>\
+                        <th class="text-left py-3 px-4">Rote Memorization</th>\
+                        <th class="text-left py-3 px-4">Schema-Associated Mnemonics</th>\
+                        <th class="text-left py-3 px-4">Significance</th>\
+                      </tr>\
+                    </thead>\
+                    <tbody class="text-soft-grey">\
+                      <tr class="border-b border-sage-green/10">\
+                        <td class="py-3 px-4 font-medium">Retention Rate (1 week)</td>\
+                        <td class="py-3 px-4">37.93%</td>\
+                        <td class="py-3 px-4 text-deep-forest font-semibold">59.99%</td>\
+                        <td class="py-3 px-4">p &lt; 0.05</td>\
+                      </tr>\
+                      <tr class="border-b border-sage-green/10">\
+                        <td class="py-3 px-4 font-medium">Fully-Memorized Lines</td>\
+                        <td class="py-3 px-4">2.25</td>\
+                        <td class="py-3 px-4 text-deep-forest font-semibold">4.90</td>\
+                        <td class="py-3 px-4">p &lt; 0.05</td>\
+                      </tr>\
+                      <tr>\
+                        <td class="py-3 px-4 font-medium">Median Score (/20)</td>\
+                        <td class="py-3 px-4">3.5</td>\
+                        <td class="py-3 px-4 text-deep-forest font-semibold">17</td>\
+                        <td class="py-3 px-4">Significant</td>\
+                      </tr>\
+                    </tbody>\
+                  </table>\
+                </div>\
+                <p class="text-xs text-soft-grey mt-2">\
+                  Data from controlled experiment, <a href="https://www.nature.com/articles/s41598-023-47826-x" class="citation-link">[233]</a>\
+                </p>\
+              </div>\
+\
+              <div class="insight-highlight">\
+                <h4 class="font-semibold text-deep-forest mb-3">\
+                  <i class="fas fa-clock text-muted-gold mr-2"></i>\
+                  Spaced Repetition Systems (SRS)\
+                </h4>\
+                <p class="mb-0">\
+                  Modern SRS algorithms optimize review schedules based on the psychological &#34;forgetting curve,&#34; strengthening neural pathways for durable long-term retention. Platforms like <strong>Pandanese</strong> combine pre-made mnemonics with SRS for Chinese character mastery.\
+                  <a href="https://www.pandanese.com/blog/mnemonics-brain-hacks-proven-to-improve-memory-and-study-efficiency" class="citation-link ml-1">[251]</a>\
+                </p>\
+              </div>\
+            </div>\
+\
+            <!-- Practical Toolkit Subsection -->\
+            <div id="practical-toolkit" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">Practical Application: Building Your Own Mnemonic Toolkit</h3>\
+\
+              <div class="grid md:grid-cols-3 gap-6 mb-8">\
+                <div class="bg-white/60 rounded-lg p-6">\
+                  <i class="fas fa-music text-muted-gold text-2xl mb-4"></i>\
+                  <h4 class="font-semibold text-deep-forest mb-3">Creating Rhymes &amp; Jingles</h4>\
+                  <p class="text-sm text-soft-grey">\
+                    Transform information into catchy phrases. For Chinese idioms (ch\'e9ngy\uc0\u468 ), use acronyms like &#34;PFCZ&#34; for \u30772 \u37340 \u27785 \u33311  (p\'f2 f\u468  ch\'e9n zh\u333 u).\
+                    <a href="https://regional.chinadaily.com.cn/jiangsu/taicang/2019-10/16/c_487313.htm" class="citation-link ml-1">[246]</a>\
+                  </p>\
+                </div>\
+\
+                <div class="bg-white/60 rounded-lg p-6">\
+                  <i class="fas fa-chess-rook text-muted-gold text-2xl mb-4"></i>\
+                  <h4 class="font-semibold text-deep-forest mb-3">Designing Memory Palaces</h4>\
+                  <p class="text-sm text-soft-grey">\
+                    Use familiar locations as mental storage. Place Chinese characters in specific &#34;loci&#34; within your home, creating vivid, bizarre imagery for enhanced recall.\
+                    <a href="https://www.mandarinblueprint.com/blog/chinese-mnemonics/" class="citation-link ml-1">[252]</a>\
+                  </p>\
+                </div>\
+\
+                <div class="bg-white/60 rounded-lg p-6">\
+                  <i class="fas fa-mobile-alt text-muted-gold text-2xl mb-4"></i>\
+                  <h4 class="font-semibold text-deep-forest mb-3">Digital Integration</h4>\
+                  <p class="text-sm text-soft-grey">\
+                    Combine mnemonics with SRS apps like Anki or Memrise. Create digital flashcards with characters, pinyin, and your personal memory hooks.\
+                  </p>\
+                </div>\
+              </div>\
+            </div>\
+          </div>\
+        </div>\
+      </section>\
+\
+      <!-- Section 2: The Confucian Framework -->\
+      <section id="confucian-framework" class="py-16 px-6 bg-white/30 ancient-pattern">\
+        <div class="container mx-auto max-w-4xl">\
+          <header class="mb-12">\
+            <h2 class="serif-display text-4xl font-bold text-deep-forest mb-4">\
+              The Confucian Framework\
+            </h2>\
+            <p class="text-xl text-soft-grey leading-relaxed">\
+              A Philosophy of Learning and Self-Cultivation: The Dynamic Cycle of &#34;Learning, Thinking, and Doing&#34;\
+            </p>\
+          </header>\
+\
+          <div class="prose prose-lg max-w-none">\
+            <p class="text-lg leading-relaxed mb-8">\
+              Beyond specific memorization techniques, the Chinese learning tradition is deeply rooted in a philosophical framework established by Confucius over 2,500 years ago. This framework views learning as a lifelong process of self-cultivation and moral development, where the goal is not just knowledge acquisition but the development of virtuous character.\
+            </p>\
+\
+            <!-- Core Tenets Subsection -->\
+            <div id="core-tenets" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">The Core Tenets: &#34;Learning, Thinking, and Doing&#34;</h3>\
+\
+              <div class="bg-gradient-to-r from-sage-green/10 to-muted-gold/10 rounded-xl p-8 mb-8">\
+                <div class="grid md:grid-cols-3 gap-6 text-center">\
+                  <div>\
+                    <div class="w-16 h-16 bg-sage-green/20 rounded-full flex items-center justify-center mx-auto mb-4">\
+                      <span class="serif-display text-2xl font-bold text-deep-forest">\uc0\u23398 </span>\
+                    </div>\
+                    <h4 class="font-semibold text-deep-forest mb-2">Learning (Xu\'e9)</h4>\
+                    <p class="text-sm text-soft-grey">\
+                      Active acquisition of knowledge through observation, dialogue, and experience\
+                    </p>\
+                  </div>\
+\
+                  <div>\
+                    <div class="w-16 h-16 bg-muted-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">\
+                      <span class="serif-display text-2xl font-bold text-deep-forest">\uc0\u24605 </span>\
+                    </div>\
+                    <h4 class="font-semibold text-deep-forest mb-2">Thinking (S\uc0\u299 )</h4>\
+                    <p class="text-sm text-soft-grey">\
+                      Critical reflection, analysis, and inquiry to process and understand\
+                    </p>\
+                  </div>\
+\
+                  <div>\
+                    <div class="w-16 h-16 bg-deep-forest/20 rounded-full flex items-center justify-center mx-auto mb-4">\
+                      <span class="serif-display text-2xl font-bold text-deep-forest">\uc0\u34892 </span>\
+                    </div>\
+                    <h4 class="font-semibold text-deep-forest mb-2">Doing (X\'edng)</h4>\
+                    <p class="text-sm text-soft-grey">\
+                      Practical application and practice to test and refine knowledge\
+                    </p>\
+                  </div>\
+                </div>\
+              </div>\
+\
+              <blockquote class="border-l-4 border-muted-gold pl-6 italic text-xl text-deep-forest bg-white/50 p-6 rounded-r-lg mb-8">\
+                &#34;Learning without thought is labor lost; thought without learning is perilous&#34;\
+                <footer class="text-base mt-3 not-italic text-soft-grey">\
+                  \'97 Confucius\
+                  <a href="https://m.fx361.com/news/2018/0613/3670257.html" class="citation-link ml-1">[286]</a>\
+                </footer>\
+              </blockquote>\
+            </div>\
+\
+            <!-- Master's Method Subsection -->\
+            <div id="masters-method" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">The Master&#39;s Method: Confucius&#39;s Pedagogical Innovations</h3>\
+\
+              <div class="space-y-8">\
+                <div class="insight-highlight">\
+                  <h4 class="font-semibold text-deep-forest mb-3">\
+                    <i class="fas fa-lightbulb text-muted-gold mr-2"></i>\
+                    Heuristic Teaching: &#34;Not to enlighten until one is perplexed&#34;\
+                  </h4>\
+                  <p class="mb-3">\
+                    <strong>&#34;B\'f9 f\'e8n b\'f9 q\uc0\u464 , b\'f9 f\u275 i b\'f9 f\u257 &#34;</strong> (\u19981 \u24868 \u19981 \u21551 \u65292 \u19981 \u24753 \u19981 \u21457 ) \'97 Confucius would wait until students grappled with problems and reached frustration before offering guidance, fostering intellectual autonomy and critical thinking.\
+                  </p>\
+                  <p class="text-sm text-soft-grey mb-0">\
+                    This approach positions the teacher as a &#34;guide on the side&#34; rather than a &#34;sage on the stage.&#34;\
+                    <a href="https://www.sinoss.net/uploadfile/2017/0514/20170514041754115.pdf" class="citation-link ml-1">[287]</a>\
+                  </p>\
+                </div>\
+\
+                <div class="bg-white/60 rounded-lg p-6">\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-users text-muted-gold mr-2"></i>\
+                    Teaching According to Aptitude (Y\uc0\u299 n C\'e1i Sh\u299  Ji\'e0o)\
+                  </h4>\
+                  <p class="mb-4">\
+                    Confucius recognized different learning styles among his students. When asked about &#34;ren&#34; (benevolence), he gave different answers:\
+                  </p>\
+                  <ul class="space-y-2 text-sm">\
+                    <li><strong>To Yan Hui:</strong> &#34;To master oneself and return to propriety is benevolence&#34;</li>\
+                    <li><strong>To Fan Chi:</strong> &#34;It is to love others&#34;</li>\
+                    <li><strong>To Zi Zhang:</strong> Detailed list of five specific virtues</li>\
+                  </ul>\
+                  <p class="text-sm text-soft-grey mt-3">\
+                    This demonstrates sophisticated understanding of human psychology and commitment to individualized learning.\
+                    <a href="https://www.sinoss.net/uploadfile/2017/0514/20170514041754115.pdf" class="citation-link ml-1">[287]</a>\
+                  </p>\
+                </div>\
+              </div>\
+            </div>\
+\
+            <!-- Modern Relevance Subsection -->\
+            <div id="modern-relevance" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">Modern Relevance: Applying Confucian Principles Today</h3>\
+\
+              <div class="grid md:grid-cols-2 gap-8">\
+                <div>\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-heart text-muted-gold mr-2"></i>\
+                    Cultivating Love for Learning (H\'e0o Xu\'e9)\
+                  </h4>\
+                  <p class="mb-4">\
+                    Confucius believed intrinsic motivation was the most powerful engine for growth: &#34;To know it is not as good as to love it; to love it is not as good as to take joy in it.&#34;\
+                  </p>\
+                  <p class="text-sm text-soft-grey">\
+                    Modern application involves connecting material to personal interests, asking genuine questions, and celebrating discovery moments.\
+                  </p>\
+                </div>\
+\
+                <div>\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-chalkboard-teacher text-muted-gold mr-2"></i>\
+                    The Feynman Technique\
+                  </h4>\
+                  <p class="mb-4">\
+                    This modern method aligns perfectly with Confucian principles: explaining concepts in simple terms forces you to confront gaps in understanding and achieve true mastery.\
+                  </p>\
+                  <p class="text-sm text-soft-grey">\
+                    The act of teaching implements both &#34;thinking&#34; (s\uc0\u299 ) and &#34;doing&#34; (x\'edng) from the Confucian triad.\
+                  </p>\
+                </div>\
+              </div>\
+            </div>\
+          </div>\
+        </div>\
+      </section>\
+\
+      <!-- Section 3: Imperial Examination Legacy -->\
+      <section id="imperial-legacy" class="py-16 px-6">\
+        <div class="container mx-auto max-w-4xl">\
+          <header class="mb-12">\
+            <h2 class="serif-display text-4xl font-bold text-deep-forest mb-4">\
+              The Imperial Examination Legacy\
+            </h2>\
+            <p class="text-xl text-soft-grey leading-relaxed">\
+              Structured Learning and Rigor: 1,300 Years of Educational Culture\
+            </p>\
+          </header>\
+\
+          <div class="prose prose-lg max-w-none">\
+            <p class="text-lg leading-relaxed mb-8">\
+              The imperial examination system (*k\uc0\u275 j\u468 * \u31185 \u20030 ), which lasted for over 1,300 years, has left an indelible mark on the Chinese approach to education. This system created a culture of intense competition, rigorous study, and deep-seated belief in the power of examinations to determine social and economic future.\
+            </p>\
+\
+            <!-- Gaokao Influence Subsection -->\
+            <div id="gaokao-influence" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">The Gaokao&#39;s Ancestor: The K\uc0\u275 j\u468  System&#39;s Influence</h3>\
+\
+              <div class="relative mb-8">\
+                <img src="https://kimi-web-img.moonshot.cn/img/www.worldhistory.org/859efd269c36c0d13126ff1d4e0dbf5ad93df9d5.jpg" alt="Ancient Chinese imperial examination hall with scholars taking test" class="w-full h-64 object-cover rounded-lg opacity-80" size="medium" aspect="wide" color="brown" style="photo" query="chinese imperial examination hall" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>\
+                <div class="absolute inset-0 bg-gradient-to-t from-deep-forest/60 to-transparent rounded-lg"></div>\
+                <div class="absolute bottom-4 left-4 right-4 text-white">\
+                  <p class="text-sm">\
+                    The k\uc0\u275 j\u468  system&#39;s emphasis on standardized testing and merit-based advancement continues to influence modern Chinese education through the Gaokao system.\
+                    <a href="https://link.springer.com/article/10.1186/s40468-022-00201-5" class="citation-link ml-1">[164]</a>\
+                  </p>\
+                </div>\
+              </div>\
+\
+              <div class="insight-highlight">\
+                <h4 class="font-semibold text-deep-forest mb-3">\
+                  <i class="fas fa-scroll text-muted-gold mr-2"></i>\
+                  Standardized Testing Perpetuation\
+                </h4>\
+                <p class="mb-0">\
+                  The k\uc0\u275 j\u468  created powerful cultural acceptance of standardized testing as a fair mechanism for social mobility. This legacy is clearly reflected in the modern Gaokao, which determines university access and career prospects through high-stakes, nationwide examinations.\
+                </p>\
+              </div>\
+            </div>\
+\
+            <!-- Study Regimens Subsection -->\
+            <div id="study-regimens" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">Ancient Study Regimens: A Blueprint for Discipline</h3>\
+\
+              <div class="grid md:grid-cols-2 gap-8 mb-8">\
+                <div class="bg-white/60 rounded-lg p-6">\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-book text-muted-gold mr-2"></i>\
+                    Structured Memorization\
+                  </h4>\
+                  <p class="text-sm text-soft-grey mb-4">\
+                    The &#34;Thousand Character Classic&#34; (\uc0\u21315 \u23383 \u25991 ) served as a cornerstone, with 1,000 unique characters arranged in 250 rhyming couplets for systematic learning.\
+                    <a href="http://www.chinaknowledge.de/Literature/Classics/qianziwen.html" class="citation-link ml-1">[113]</a>\
+                  </p>\
+                  <p class="text-sm">\
+                    This method emphasized foundational memorization as the crucial first step toward deeper understanding.\
+                  </p>\
+                </div>\
+\
+                <div class="bg-white/60 rounded-lg p-6">\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-hourglass-half text-muted-gold mr-2"></i>\
+                    Timed Mock Exams\
+                  </h4>\
+                  <p class="text-sm text-soft-grey mb-4">\
+                    Regular simulated exam sessions replicated actual test conditions, building mental stamina and time management skills.\
+                    <a href="https://www.quora.com/How-did-the-ancient-Chinese-study-for-the-imperial-examination-Did-they-just-repeatedly-read-dozens-of-scrolls-every-day" class="citation-link ml-1">[167]</a>\
+                  </p>\
+                  <p class="text-sm">\
+                    This practice is the direct ancestor of modern &#34;sea of questions&#34; (\uc0\u39064 \u28023 ) strategy.\
+                  </p>\
+                </div>\
+              </div>\
+            </div>\
+\
+            <!-- Exam Strategies Subsection -->\
+            <div id="exam-strategies" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">Contemporary Exam Strategies: Lessons from Modern Chinese Students</h3>\
+\
+              <div class="space-y-6">\
+                <div class="insight-highlight">\
+                  <h4 class="font-semibold text-deep-forest mb-3">\
+                    <i class="fas fa-repeat text-muted-gold mr-2"></i>\
+                    Rote Memorization and Repetition (\uc0\u27515 \u35760 \u30828 \u32972 )\
+                  </h4>\
+                  <p class="mb-3">\
+                    Despite modern emphasis on critical thinking, rote memorization remains a powerful strategy, seen as a necessary foundation for deeper understanding rather than mindless activity.\
+                  </p>\
+                  <p class="text-sm text-soft-grey mb-0">\
+                    This approach internalizes information through repetitive practice, making it readily accessible for exam recall.\
+                  </p>\
+                </div>\
+\
+                <div class="bg-white/60 rounded-lg p-6">\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-pen-fancy text-muted-gold mr-2"></i>\
+                    Intensive Note-Taking and Information Condensation\
+                  </h4>\
+                  <p class="mb-4">\
+                    Students take detailed classroom notes, then rewrite and condense them after class, creating personalized study guides through active processing and synthesis.\
+                  </p>\
+                  <p class="text-sm text-soft-grey">\
+                    This practice develops critical thinking while organizing knowledge for efficient review.\
+                    <a href="https://nacada.ksu.edu/Resources/Academic-Advising-Today/View-Articles/Understanding-Chinese-Students-Learning-Behaviors-from-a-Cultural-Perspective.aspx" class="citation-link ml-1">[184]</a>\
+                  </p>\
+                </div>\
+\
+                <div class="bg-white/60 rounded-lg p-6">\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-water text-muted-gold mr-2"></i>\
+                    The &#34;Sea of Questions&#34; (T\'ed H\uc0\u462 i) Strategy\
+                  </h4>\
+                  <p class="mb-4">\
+                    Working through vast numbers of practice problems builds mastery through repeated exposure to question types and develops intuitive understanding through extensive practice.\
+                  </p>\
+                  <p class="text-sm text-soft-grey">\
+                    This strategy reflects deep-seated belief in the power of disciplined practice and repetition.\
+                  </p>\
+                </div>\
+              </div>\
+            </div>\
+          </div>\
+        </div>\
+      </section>\
+\
+      <!-- Section 4: The Synthesis -->\
+      <section id="synthesis" class="py-16 px-6 bg-gradient-to-b from-sage-green/10 to-muted-gold/10 ancient-pattern">\
+        <div class="container mx-auto max-w-4xl">\
+          <header class="mb-12">\
+            <h2 class="serif-display text-4xl font-bold text-deep-forest mb-4">\
+              The Synthesis\
+            </h2>\
+            <p class="text-xl text-soft-grey leading-relaxed">\
+              Integrating Ancient Wisdom with Modern Science for Optimal Learning\
+            </p>\
+          </header>\
+\
+          <div class="prose prose-lg max-w-none">\
+            <p class="text-lg leading-relaxed mb-8">\
+              The most powerful learning strategies do not lie in choosing between ancient traditions and modern science, but in synthesizing them. This integration moves beyond passive rote-learning to active construction, combining the discipline of the past with the insights of the present.\
+            </p>\
+\
+            <!-- Blending Techniques Subsection -->\
+            <div id="blending-techniques" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">Blending Traditional and Modern Memory Techniques</h3>\
+\
+              <div class="grid md:grid-cols-2 gap-8 mb-8">\
+                <div class="bg-white/70 rounded-xl p-6">\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-sync-alt text-muted-gold mr-2"></i>\
+                    SRS for Classical Texts\
+                  </h4>\
+                  <p class="text-sm text-soft-grey mb-4">\
+                    Combine Spaced Repetition Systems with traditional texts like the &#34;Thousand Character Classic.&#34; Digital flashcards with stroke-order animations and audio pronunciations optimize ancient content with modern efficiency.\
+                    <a href="https://www.quora.com/How-should-I-go-about-learning-the-Chinese-Thousand-Character-Classic-and-are-there-any-other-similar-texts-with-even-more-characters" class="citation-link ml-1">[111]</a>\
+                  </p>\
+                  <p class="text-sm">\
+                    This transforms brute-force memorization into data-driven optimization.\
+                  </p>\
+                </div>\
+\
+                <div class="bg-white/70 rounded-xl p-6">\
+                  <h4 class="font-semibold text-deep-forest mb-4">\
+                    <i class="fas fa-map-marked-alt text-muted-gold mr-2"></i>\
+                    Memory Palaces for Timelines\
+                  </h4>\
+                  <p class="text-sm text-soft-grey mb-4">\
+                    Apply the Memory Palace technique to historical timelines, placing dynasties in specific locations within a familiar mental space.\
+                  </p>\
+                  <div class="bg-sage-green/10 rounded-lg p-3 text-xs text-soft-grey">\
+                    Example: Front door = Xia dynasty, hallway = Shang, living room = Zhou, each with vivid imagery representing the era&#39;s characteristics.\
+                  </div>\
+                </div>\
+              </div>\
+            </div>\
+\
+            <!-- Active Construction Subsection -->\
+            <div id="active-construction" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">From Passive Reception to Active Construction</h3>\
+\
+              <div class="insight-highlight">\
+                <h4 class="font-semibold text-deep-forest mb-4">\
+                  <i class="fas fa-brain text-muted-gold mr-2"></i>\
+                  The Shift in Educational Philosophy\
+                </h4>\
+                <p class="mb-4">\
+                  Moving from the &#34;banking&#34; model of education (students as empty vessels) to constructivist learning (students as active participants) represents a fundamental shift toward deeper, more durable understanding.\
+                </p>\
+                <p class="text-sm text-soft-grey mb-0">\
+                  This transition builds upon traditional discipline while fostering creativity and critical thinking.\
+                </p>\
+              </div>\
+\
+              <div class="grid md:grid-cols-3 gap-6 mb-8">\
+                <div class="text-center">\
+                  <div class="w-20 h-20 bg-sage-green/20 rounded-full flex items-center justify-center mx-auto mb-4">\
+                    <i class="fas fa-question-circle text-2xl text-deep-forest"></i>\
+                  </div>\
+                  <h4 class="font-semibold text-deep-forest mb-2">Questioning</h4>\
+                  <p class="text-sm text-soft-grey">\
+                    Encourage students to ask &#34;why&#34; and &#34;how,&#34; challenging assumptions and connecting new information to existing knowledge.\
+                  </p>\
+                </div>\
+\
+                <div class="text-center">\
+                  <div class="w-20 h-20 bg-muted-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">\
+                    <i class="fas fa-project-diagram text-2xl text-deep-forest"></i>\
+                  </div>\
+                  <h4 class="font-semibold text-deep-forest mb-2">Projects</h4>\
+                  <p class="text-sm text-soft-grey">\
+                    Apply knowledge to real-world problems through extended, in-depth investigations that bridge theory and practice.\
+                  </p>\
+                </div>\
+\
+                <div class="text-center">\
+                  <div class="w-20 h-20 bg-deep-forest/20 rounded-full flex items-center justify-center mx-auto mb-4">\
+                    <i class="fas fa-robot text-2xl text-deep-forest"></i>\
+                  </div>\
+                  <h4 class="font-semibold text-deep-forest mb-2">Technology</h4>\
+                  <p class="text-sm text-soft-grey">\
+                    AI tutors and interactive platforms provide personalized instruction and immersive learning experiences.\
+                  </p>\
+                </div>\
+              </div>\
+            </div>\
+\
+            <!-- Practical Framework Subsection -->\
+            <div id="practical-framework" class="mb-12">\
+              <h3 class="serif-display text-2xl font-semibold text-deep-forest mb-6">A Practical Framework for the Modern Learner</h3>\
+\
+              <div class="bg-white/80 rounded-xl p-8 mb-8">\
+                <div class="space-y-8">\
+                  <!-- Step 1 -->\
+                  <div class="flex items-start space-x-6">\
+                    <div class="flex-shrink-0 w-12 h-12 bg-sage-green/20 rounded-full flex items-center justify-center">\
+                      <span class="serif-display text-xl font-bold text-deep-forest">1</span>\
+                    </div>\
+                    <div class="flex-1">\
+                      <h4 class="font-semibold text-deep-forest mb-3">Build Foundation with Structured Memorization</h4>\
+                      <p class="text-sm text-soft-grey mb-3">\
+                        Create a vast mental database of fundamental knowledge using rhythm, rhyme, and repetition. Leverage traditional texts like the &#34;Thousand Character Classic&#34; with modern SRS tools.\
+                        <a href="https://www.lingq.com/en/learn-chinese-online/courses/632006/" class="citation-link ml-1">[114]</a>\
+                      </p>\
+                      <p class="text-sm">\
+                        Focus on core vocabulary, common phrases, and grammatical patterns through disciplined practice.\
+                      </p>\
+                    </div>\
+                  </div>\
+\
+                  <!-- Step 2 -->\
+                  <div class="flex items-start space-x-6">\
+                    <div class="flex-shrink-0 w-12 h-12 bg-muted-gold/20 rounded-full flex items-center justify-center">\
+                      <span class="serif-display text-xl font-bold text-deep-forest">2</span>\
+                    </div>\
+                    <div class="flex-1">\
+                      <h4 class="font-semibold text-deep-forest mb-3">Deepen Understanding through Reflection</h4>\
+                      <p class="text-sm text-soft-grey mb-3">\
+                        Move beyond surface memorization to critical engagement. Break down characters into radicals, explore historical context, and ask probing questions.\
+                        <a href="https://mandarinmosaic.com/blog/learning-traditional-chinese" class="citation-link ml-1">[122]</a>\
+                      </p>\
+                      <p class="text-sm">\
+                        Transform from passive recipient to active investigator, connecting memorized facts into coherent understanding.\
+                      </p>\
+                    </div>\
+                  </div>\
+\
+                  <!-- Step 3 -->\
+                  <div class="flex items-start space-x-6">\
+                    <div class="flex-shrink-0 w-12 h-12 bg-deep-forest/20 rounded-full flex items-center justify-center">\
+                      <span class="serif-display text-xl font-bold text-deep-forest">3</span>\
+                    </div>\
+                    <div class="flex-1">\
+                      <h4 class="font-semibold text-deep-forest mb-3">Master Knowledge through Application</h4>\
+                      <p class="text-sm text-soft-grey mb-3">\
+                        Use the Feynman Technique to explain concepts simply, engage in project-based learning, and teach others to solidify understanding.\
+                        <a href="https://chalkacademy.com/teach-child-chinese-characters-nonfluent-parent/" class="citation-link ml-1">[110]</a>\
+                      </p>\
+                      <p class="text-sm">\
+                        True mastery comes through practical application and the ability to communicate knowledge effectively to others.\
+                      </p>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>\
+\
+              <div class="text-center">\
+                <blockquote class="serif-display text-2xl italic text-deep-forest mb-4">\
+                  &#34;The journey of a thousand miles begins with a single step&#34;\
+                </blockquote>\
+                <p class="text-soft-grey">\
+                  Begin your synthesis of ancient wisdom and modern science today, building upon millennia of proven learning strategies enhanced by contemporary insights.\
+                </p>\
+              </div>\
+            </div>\
+          </div>\
+        </div>\
+      </section>\
+    </main>\
+\
+    <script>\
+        // Scroll progress indicator\
+        window.addEventListener('scroll', () => \{\
+            const scrollProgress = document.getElementById('scrollProgress');\
+            const scrollTop = document.documentElement.scrollTop;\
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;\
+            const scrollPercent = (scrollTop / scrollHeight) * 100;\
+            scrollProgress.style.width = scrollPercent + '%';\
+        \});\
+\
+        // Mobile TOC toggle\
+        document.getElementById('tocToggle').addEventListener('click', () => \{\
+            const toc = document.getElementById('tableOfContents');\
+            toc.classList.toggle('mobile-open');\
+        \});\
+\
+        // Smooth scrolling for TOC links\
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => \{\
+            anchor.addEventListener('click', function (e) \{\
+                e.preventDefault();\
+                const target = document.querySelector(this.getAttribute('href'));\
+                if (target) \{\
+                    target.scrollIntoView(\{\
+                        behavior: 'smooth',\
+                        block: 'start'\
+                    \});\
+                \}\
+                // Close mobile TOC if open\
+                if (window.innerWidth < 1024) \{\
+                    document.getElementById('tableOfContents').classList.remove('mobile-open');\
+                \}\
+            \});\
+        \});\
+\
+        // Close mobile TOC when clicking outside\
+        document.addEventListener('click', (e) => \{\
+            const toc = document.getElementById('tableOfContents');\
+            const toggle = document.getElementById('tocToggle');\
+            \
+            if (!toc.contains(e.target) && !toggle.contains(e.target)) \{\
+                toc.classList.remove('mobile-open');\
+            \}\
+        \});\
+        \
+        // Highlight active section in TOC\
+        const sections = document.querySelectorAll('section[id]');\
+        const tocLinks = document.querySelectorAll('nav a[href^="#"]');\
+        \
+        window.addEventListener('scroll', () => \{\
+            let current = '';\
+            sections.forEach(section => \{\
+                const sectionTop = section.offsetTop - 100;\
+                if (scrollY >= sectionTop) \{\
+                    current = section.getAttribute('id');\
+                \}\
+            \});\
+            \
+            tocLinks.forEach(link => \{\
+                link.classList.remove('bg-sage-green/20', 'font-semibold');\
+                if (link.getAttribute('href') === '#' + current) \{\
+                    link.classList.add('bg-sage-green/20', 'font-semibold');\
+                \}\
+            \});\
+        \});\
+    </script>\
+  \
+\
+</body></html>}

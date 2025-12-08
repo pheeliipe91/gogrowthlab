@@ -2,6 +2,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 import type { Language } from "@/lib/i18n";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import { Link } from "wouter";
 
 const languages: { code: Language; label: string }[] = [
   { code: "pt", label: "PT" },
@@ -12,6 +13,12 @@ const languages: { code: Language; label: string }[] = [
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
 
+  const navLabels = {
+    pt: "Pesquisas",
+    en: "Researches",
+    zh: "研究",
+  };
+
   return (
     <motion.header
       initial={{ opacity: 0 }}
@@ -19,7 +26,14 @@ export function Header() {
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm"
     >
-      <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-end">
+      <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
+        <nav className="flex items-center gap-4">
+          <Link href="/researches">
+            <span className="text-sm text-foreground/60 hover:text-foreground transition-colors cursor-pointer" data-testid="link-researches">
+              {navLabels[language]}
+            </span>
+          </Link>
+        </nav>
         <div className="flex items-center gap-5">
           <div className="hidden sm:flex items-center gap-1.5 text-sm text-foreground/40">
             <MapPin className="w-3 h-3" />
