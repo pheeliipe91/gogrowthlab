@@ -22,12 +22,14 @@ export const subscribers = pgTable("subscribers", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   email: text("email").notNull().unique(),
   language: text("language").notNull().default("pt"),
+  linkedin: text("linkedin"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
 export const insertSubscriberSchema = createInsertSchema(subscribers).pick({
   email: true,
   language: true,
+  linkedin: true,
 });
 
 export type InsertSubscriber = z.infer<typeof insertSubscriberSchema>;

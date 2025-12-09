@@ -5,11 +5,11 @@ let connectionSettings: any;
 
 async function getCredentials() {
   const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
-  const xReplitToken = process.env.REPL_IDENTITY 
-    ? 'repl ' + process.env.REPL_IDENTITY 
-    : process.env.WEB_REPL_RENEWAL 
-    ? 'depl ' + process.env.WEB_REPL_RENEWAL 
-    : null;
+  const xReplitToken = process.env.REPL_IDENTITY
+    ? 'repl ' + process.env.REPL_IDENTITY
+    : process.env.WEB_REPL_RENEWAL
+      ? 'depl ' + process.env.WEB_REPL_RENEWAL
+      : null;
 
   if (!xReplitToken) {
     throw new Error('X_REPLIT_TOKEN not found for repl/depl');
@@ -29,7 +29,7 @@ async function getCredentials() {
     throw new Error('Resend not connected');
   }
   return {
-    apiKey: connectionSettings.settings.api_key, 
+    apiKey: connectionSettings.settings.api_key,
     fromEmail: connectionSettings.settings.from_email
   };
 }
@@ -48,13 +48,13 @@ export async function getResendClient() {
 export async function sendNewsletterWelcomeEmail(to: string, language: string) {
   try {
     const { client, fromEmail } = await getResendClient();
-    
+
     const subjects: Record<string, string> = {
       pt: "Bem-vindo à newsletter do gogrowth lab!",
       en: "Welcome to the gogrowth lab newsletter!",
       zh: "欢迎订阅 gogrowth lab 通讯！"
     };
-    
+
     const bodies: Record<string, string> = {
       pt: `
         <h2>Olá!</h2>
@@ -96,19 +96,19 @@ export async function sendNewsletterWelcomeEmail(to: string, language: string) {
 
 // Send mentorship application confirmation email
 export async function sendMentorshipConfirmationEmail(
-  to: string, 
+  to: string,
   name: string,
   language: string = "pt"
 ) {
   try {
     const { client, fromEmail } = await getResendClient();
-    
+
     const subjects: Record<string, string> = {
       pt: "Recebemos sua aplicação para o Projeto Mergulho!",
       en: "We received your application for Project Dive!",
       zh: "我们收到了您的深潜项目申请！"
     };
-    
+
     const bodies: Record<string, string> = {
       pt: `
         <h2>Olá, ${name}!</h2>
@@ -164,7 +164,7 @@ export async function sendMentorshipNotificationEmail(application: {
 }) {
   try {
     const { client, fromEmail } = await getResendClient();
-    
+
     const result = await client.emails.send({
       from: fromEmail,
       to: [fromEmail], // Send to yourself
@@ -189,5 +189,33 @@ export async function sendMentorshipNotificationEmail(application: {
   } catch (error) {
     console.error("Failed to send notification email:", error);
     throw error;
+  }
+}
+
+// Send notification to Phelipe about new subscriber
+export async function sendSubscriberNotificationEmail(email: string, linkedin?: string | null) {
+  try {
+    const { client, fromEmail } = await getResendClient();
+
+    const result = await client.emails.send({
+      from: fromEmail,
+      to: [fromEmail], // Send to yourself
+      subject: `Novo Lead do Artigo: ${email}`,
+      html: `
+        <h2>Novo Lead Capturado! / New Subscriber!</h2>
+        <p>Um novo usuário desbloqueou o conteúdo ou se inscreveu.</p>
+        <table style="border-collapse: collapse; width: 100%;">
+          <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Email:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${email}</td></tr>
+          <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>LinkedIn:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${linkedin ? `<a href="${linkedin}">${linkedin}</a>` : 'N/A'}</td></tr>
+        </table>
+      `,
+    });
+
+    console.log("Subscriber notification email sent:", result);
+    return result;
+  } catch (error) {
+    console.error("Failed to send subscriber notification email:", error);
+    // Don't throw here to avoid blocking the user experience if notification fails
+    return null;
   }
 }
